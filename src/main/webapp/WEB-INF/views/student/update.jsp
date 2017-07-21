@@ -87,7 +87,7 @@
 			<span id="stAddress1"></span>
 			<br>
 			<input type="submit" value="提交" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="button" class="btn btn-success" onclick="window.location.href='/home/index.jsp'"  value="返回">
+			<input type="button" class="btn btn-success" onclick="window.location.href='/WEB-INF/views/index.jsp'" value="返回">
 		</form>
 	</body>
 </html>

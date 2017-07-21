@@ -4,6 +4,7 @@ import com.hik.studentms.dao.StudentDao;
 import com.hik.studentms.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -46,7 +47,14 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public String save(Student student) {
-        return (String) this.getCurrentSession().save(student);
+        String rseult = "";
+        Session session = this.getCurrentSession();
+        Transaction transaction =session.beginTransaction();
+        rseult = (String) session.save(student);
+        transaction.commit();
+        session.close();
+
+        return  rseult;
     }
 
     @Override

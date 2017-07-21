@@ -4,6 +4,7 @@ import com.hik.studentms.entity.Student;
 import com.hik.studentms.entity.User;
 import com.hik.studentms.service.StudentService;
 import com.hik.studentms.service.UserService;
+import com.hik.studentms.util.IdUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,6 +46,18 @@ public class StudentController {
 
     @RequestMapping("/add")
     public String add(){
+        return "/student/add";
+    }
+
+    @RequestMapping("/add.do")
+    public String addStudent(String name, int gender, float balance, String address ){
+        Student student = new Student();
+        student.setId(IdUtil.generateId());
+        student.setAddress(address);
+        student.setName(name);
+        student.setGender(gender);
+        student.setBalance(balance);
+        String msg = studentService.save(student);
         return "/student/add";
     }
 

@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Student implements Serializable{
     private static final long serialVersionUID = -3417704505579858409L;
     String id;
-    String username;
+    String name;
     int gender;
     String address;
     float balance;
@@ -28,17 +28,17 @@ public class Student implements Serializable{
         this.id = id;
     }
 
-    @Column(name = "username", nullable = true)
-    public String getUsername() {
-        return username;
+    @Column(name = "name")
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
-    @Column(name = "gender", nullable = false)
+    @Column(name = "gender")
     public int getGender() {
         return gender;
     }
@@ -47,7 +47,7 @@ public class Student implements Serializable{
         this.gender = gender;
     }
 
-    @Column(name = "address", nullable = false)
+    @Column(name = "address")
     public String getAddress() {
         return address;
     }
@@ -56,7 +56,7 @@ public class Student implements Serializable{
         this.address = address;
     }
 
-    @Column(name = "balance", nullable = false)
+    @Column(name = "balance")
     public float getBalance() {
         return balance;
     }
@@ -69,7 +69,7 @@ public class Student implements Serializable{
     public String toString() {
         return "Student{" +
                 "id='" + id + '\'' +
-                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
                 ", gender=" + gender +
                 ", address='" + address + '\'' +
                 ", balance=" + balance +

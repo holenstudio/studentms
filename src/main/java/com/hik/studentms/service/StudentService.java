@@ -2,7 +2,6 @@ package com.hik.studentms.service;
 
 import com.hik.studentms.entity.Student;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**

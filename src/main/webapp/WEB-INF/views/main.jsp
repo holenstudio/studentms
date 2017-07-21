@@ -6,13 +6,13 @@
             + path + "/";
 %>
 <%
-//    String username=(String)session.getAttribute("username");
-//    if (username==null){
+//    String name=(String)session.getAttribute("name");
+//    if (name==null){
 //        response.sendRedirect(path + "/index.jsp");
 //    }
     String mainPage=(String)request.getAttribute("mainPage");
     if(mainPage==null || mainPage.equals("")){
-        mainPage="../common/default.jsp";
+        mainPage="common/default.jsp";
     }
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -70,7 +70,7 @@
 
 <body>
 <div class="container">
-    <jsp:include page="../common/head.jsp"></jsp:include>
+    <jsp:include page="common/head.jsp"></jsp:include>
     <jsp:include page="<%=mainPage %>"></jsp:include>
 </div>
 </body>

@@ -19,7 +19,7 @@
 				<div class="head">
 					<div class="headRight">
 						欢迎管理员：
-						<font color="red"><%=session.getAttribute("username")%></font>&nbsp;&nbsp;&nbsp;
+						<font color="red"><%=session.getAttribute("name")%></font>&nbsp;&nbsp;&nbsp;
 						 <i class="icon-time"></i>&nbsp;&nbsp;<font id="today"></font>
 					</div>
 				</div>
@@ -29,7 +29,7 @@
 			<div class="span12">
 				<div class="navbar">
 					<div class="navbar-inner">
-					   <a class="brand" href="main.jsp"><i class="icon-home"></i>&nbsp;首页</a>
+					   <a class="brand" href="index.jsp"><i class="icon-home"></i>&nbsp;首页</a>
 						<ul class="nav">
 							<li><a href="<%=basePath%>student/add"><i class="icon-pencil"></i>&nbsp;添加学生信息 </a></li>
 							<li><a href="<%=basePath%>student/update"><i class="icon-book"></i>&nbsp;学生信息维护 </a></li>

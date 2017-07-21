@@ -52,6 +52,10 @@
                 <prop key="hibernate.cache.region.factory_class">${hibernate.cache.region.factory_class}</prop>
                 <prop key="hibernate.cache.provider_configuration_file_resource_path">${hibernate.cache.provider_configuration_file_resource_path}
                 </prop>
+
+                <prop key="hibernate.connection.autocommit">true</prop>
+                <prop key="hibernate.connection.release_mode">auto</prop>
+                <prop key="javax.persistence.validation.mode">none</prop>
             </props>
         </property>
         <!-- 扫描hibernate注解配置的entity -->
@@ -73,6 +77,8 @@
             <tx:method name="insert*" propagation="REQUIRED" />
             <tx:method name="update*" propagation="REQUIRED" />
             <tx:method name="delete*" propagation="REQUIRED" />
+            <tx:method name="save*" propagation="REQUIRED" />
+            <tx:method name="add*" propagation="REQUIRED" />
 
             <tx:method name="get*" propagation="SUPPORTS" read-only="true" />
             <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
