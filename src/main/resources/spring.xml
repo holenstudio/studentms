@@ -9,6 +9,6 @@
 
     <context:property-placeholder location="classpath:config.properties"/>
     <!-- 扫描service自动注入为bean -->
-    <!--<context:component-scan base-package="com.hik.studentms.service.impl,com.hik.studentms.dao.impl" />-->
+    <!--<context:component-scan base-package="com.example.studentms.service.impl,com.example.studentms.dao.impl" />-->
 
 </beans>

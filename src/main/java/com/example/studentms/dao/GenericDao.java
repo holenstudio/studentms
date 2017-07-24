@@ -1,4 +1,4 @@
-package com.hik.studentms.dao;
+package com.example.studentms.dao;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,7 +1,7 @@
-package com.hik.studentms.dao.impl;
+package com.example.studentms.dao.impl;
 
-import com.hik.studentms.dao.UserDao;
-import com.hik.studentms.entity.User;
+import com.example.studentms.dao.UserDao;
+import com.example.studentms.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,9 @@
-package com.hik.studentms.controller;
+package com.example.studentms.controller;
 
-import com.hik.studentms.entity.Student;
-import com.hik.studentms.entity.User;
-import com.hik.studentms.service.StudentService;
-import com.hik.studentms.service.UserService;
-import com.hik.studentms.util.IdUtil;
+import com.example.studentms.service.StudentService;
+import com.example.studentms.service.UserService;
+import com.example.studentms.util.IdUtil;
+import com.example.studentms.entity.Student;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

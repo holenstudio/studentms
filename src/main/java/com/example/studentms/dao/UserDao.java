@@ -1,6 +1,6 @@
-package com.hik.studentms.dao;
+package com.example.studentms.dao;
 
-import com.hik.studentms.entity.User;
+import com.example.studentms.entity.User;
 
 /**
  * Created by hehaoneng on 2017/7/19.

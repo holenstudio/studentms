@@ -1,8 +1,8 @@
-package com.hik.studentms.service.impl;
+package com.example.studentms.service.impl;
 
-import com.hik.studentms.dao.UserDao;
-import com.hik.studentms.entity.User;
-import com.hik.studentms.service.UserService;
+import com.example.studentms.dao.UserDao;
+import com.example.studentms.entity.User;
+import com.example.studentms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

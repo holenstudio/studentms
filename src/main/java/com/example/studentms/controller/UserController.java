@@ -1,8 +1,8 @@
-package com.hik.studentms.controller;
+package com.example.studentms.controller;
 
-import com.hik.studentms.entity.User;
-import com.hik.studentms.service.UserService;
-import com.hik.studentms.util.MD5Util;
+import com.example.studentms.entity.User;
+import com.example.studentms.service.UserService;
+import com.example.studentms.util.MD5Util;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

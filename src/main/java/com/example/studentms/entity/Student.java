@@ -1,4 +1,4 @@
-package com.hik.studentms.entity;
+package com.example.studentms.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

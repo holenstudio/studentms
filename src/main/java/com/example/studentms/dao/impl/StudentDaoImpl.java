@@ -1,7 +1,7 @@
-package com.hik.studentms.dao.impl;
+package com.example.studentms.dao.impl;
 
-import com.hik.studentms.dao.StudentDao;
-import com.hik.studentms.entity.Student;
+import com.example.studentms.dao.StudentDao;
+import com.example.studentms.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

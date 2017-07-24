@@ -1,6 +1,6 @@
-package com.hik.studentms.service;
+package com.example.studentms.service;
 
-import com.hik.studentms.entity.Student;
+import com.example.studentms.entity.Student;
 
 import java.util.List;
 

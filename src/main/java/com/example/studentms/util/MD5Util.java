@@ -1,4 +1,4 @@
-package com.hik.studentms.util;
+package com.example.studentms.util;
 
 import java.security.MessageDigest;
 
