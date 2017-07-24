@@ -33,6 +33,7 @@
 						<ul class="nav">
 							<li><a href="<%=basePath%>student/add"><i class="icon-pencil"></i>&nbsp;添加学生信息 </a></li>
 							<li><a href="<%=basePath%>student/update"><i class="icon-book"></i>&nbsp;学生信息维护 </a></li>
+							<li><a href="<%=basePath%>student/display"><i class="icon-book"></i>&nbsp;学生信息查看 </a></li>
 							<li><a href="<%=basePath%>updatePsw"><i class=" icon-cog"></i>&nbsp;修改密码</a></li>
 							<li><a onclick="check()"><i class="icon-user"></i>&nbsp;退出系统</a></li>
 						</ul>

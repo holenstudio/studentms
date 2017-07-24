@@ -13,3 +13,11 @@ $(document).ready(function(){
 
     });
 });
+s
+function delete(id) {
+    window.location.reload("delete?id=" + id);
+}
+
+function update(id){
+    window.location.reload("update?id=" + id);
+}

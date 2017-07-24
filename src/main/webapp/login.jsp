@@ -14,7 +14,7 @@
     <base href="<%=basePath%>"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-    <%--<script type="text/javascript" src="js/login.js"></script>--%>
+    <%--<script type="text/javascript" src="js/studentms.js"></script>--%>
     <link rel="stylesheet" href="css/style.css">
     <title>Login</title>
 </head>

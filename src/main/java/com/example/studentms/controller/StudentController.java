@@ -7,11 +7,15 @@ import com.example.studentms.entity.Student;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -36,8 +40,7 @@ public class StudentController {
     }
 
     @RequestMapping("/showStudents")
-    public @ResponseBody
-    List<Student> showUserInfos(){
+    public List<Student> showUserInfos(){
         LOGGER.info("查询用户全部用户");
         List<Student> students = studentService.findAll();
         return students;
@@ -61,22 +64,33 @@ public class StudentController {
     }
 
     @RequestMapping("/display")
-    public String display(){
+    public String display(ModelMap model){
+        model.addAttribute("students", studentService.findAll());
         return "/student/display";
     }
 
-    @RequestMapping("/showAllStudents")
-    public String showAllStudents(){
-        return "/student/showAllStudents";
-    }
-
     @RequestMapping("/update")
-    public String update(){
+    public String update(ModelMap model, @RequestParam String id){
+        Student student = studentService.load(id);
+        model.addAttribute("student", student);
         return "/student/update";
     }
 
-    @RequestMapping("/hello")
-    public @ResponseBody String test() {
-        return "hello, world! This com from spring!";
+    @RequestMapping("/update.do")
+    public String updateStudent(String id, String name, int gender, float balance, String address ){
+        Student student = new Student();
+        student.setId(id);
+        student.setAddress(address);
+        student.setName(name);
+        student.setGender(gender);
+        student.setBalance(balance);
+        studentService.saveOrUpdate(student);
+        return "redirect:/student/display";
+    }
+
+    @RequestMapping("/delete")
+    public @ResponseBody String delete(@RequestParam String id) {
+        studentService.delete(id);
+        return "redirect:/student/display";
     }
 }
