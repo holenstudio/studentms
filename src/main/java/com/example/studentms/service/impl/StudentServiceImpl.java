@@ -28,6 +28,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public List<Student> search(String name) {
+        return studentDao.search(name);
+    }
+
+    @Override
     public List<Student> findAll() {
         return studentDao.findAll();
     }

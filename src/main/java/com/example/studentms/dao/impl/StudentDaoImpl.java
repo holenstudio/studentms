@@ -70,9 +70,10 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void deleteFromId(String id) {
-        Student student = this.loadFromId(id);
+//        Student student = this.loadFromId(id);
 //        this.getCurrentSession().delete(student);
         Session session = sessionFactory.openSession();
+        Student student = (Student) session.load(Student.class, id);
         Transaction transaction =session.beginTransaction();
         session.delete(student);
         transaction.commit();
@@ -82,5 +83,11 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public void flush() {
         this.getCurrentSession().flush();
+    }
+
+    @Override
+    public List<Student> search(String name) {
+        String queryString = "from Student as student where student.name = ?";
+        return this.getCurrentSession().createQuery(queryString).setString(0, name).setCacheable(true).list();
     }
 }

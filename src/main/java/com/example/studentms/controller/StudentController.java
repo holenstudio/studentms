@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -31,16 +32,8 @@ public class StudentController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/student/{id}")
-    public String showStudentInfo(ModelMap modelMap, @PathVariable String studentId){
-        LOGGER.info("查询用户：" + studentId);
-        Student student=studentService.load(studentId);
-        modelMap.addAttribute("studentInfo", student);
-        return "/student/showAllStudents";
-    }
-
     @RequestMapping("/showStudents")
-    public List<Student> showUserInfos(){
+    public @ResponseBody List<Student> showUserInfos(){
         LOGGER.info("查询用户全部用户");
         List<Student> students = studentService.findAll();
         return students;
@@ -60,12 +53,21 @@ public class StudentController {
         student.setGender(gender);
         student.setBalance(balance);
         String msg = studentService.save(student);
-        return "/student/add";
+        return "forward:/student/display";
     }
 
     @RequestMapping("/display")
     public String display(ModelMap model){
         model.addAttribute("students", studentService.findAll());
+        return "/student/display";
+    }
+
+    @RequestMapping("/search.do")
+    public String search(ModelMap model, @RequestParam String name){
+        if (name == null || name.isEmpty()) {
+            return display(model);
+        }
+        model.addAttribute("students", studentService.search(name));
         return "/student/display";
     }
 
@@ -89,8 +91,13 @@ public class StudentController {
     }
 
     @RequestMapping("/delete")
-    public @ResponseBody String delete(@RequestParam String id) {
+    public String delete(@RequestParam String id) {
         studentService.delete(id);
         return "redirect:/student/display";
+    }
+
+    @RequestMapping("/main")
+    public @ResponseBody String main() {
+        return "redirect:/main";
     }
 }

@@ -16,11 +16,12 @@
 
     <title>更新学生信息</title>
 
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="cache-control" content="no-cache">
-    <meta http-equiv="expires" content="0">
-    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-    <meta http-equiv="description" content="This is my page">
+    <script src="<%=basePath%>js/jquery-1.9.1.min.js"></script>
+    <%--<link href="<%=basePath%>css/bootstrap.css" rel="stylesheet">--%>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=basePath%>css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="<%=basePath%>js/bootstrap.js"></script>
+    <script src="<%=basePath%>js/studentms.js"></script>
     <!--
 <link rel="stylesheet" type="text/css" href="styles.css">
 -->
@@ -43,10 +44,10 @@
 
         .form-signin {
             max-width: 550px;
-            padding: 19px 29px 29px;
+            padding: 19px 20px 29px;
             margin: 0 auto;
             background-color: #fff;
-            border: 1px solid #e5e5e5;
+            /*border: 1px solid #e5e5e5;*/
             -webkit-border-radius: 5px;
             -moz-border-radius: 5px;
             border-radius: 5px;
@@ -58,34 +59,52 @@
 
 </head>
 <body>
-
-<form class="form-signin" action="<%=basePath%>student/update.do" method="post" onSubmit="return checkstAge() &&
-		checkstSex() && checkstTel() && checkstDept() && 
-		checkstAddress() && checkstName()">
-    <input type="hidden" name="id" value="${student.id }" />
-    姓名：
-    <input class="input" type="text" name="name" value="${student.name }"
-           onblur="checkstName()" onFocus="clearstName()">
-    <br>
-    性别：
-    <select name="gender">
-        <c:if test="${student.gender == 1}">
-            <option value="1" selected="selected">男</option>
-            <option value="2">女</option>
-        </c:if>
-        <c:if test="${student.gender == 2}">
-            <option value="1">男</option>
-            <option value="2" selected="selected">女</option>
-        </c:if>
-    </select>
-    <br>
-    收入：
-    <input class="input" type="text" name="balance" value="${student.balance }">
-    <br>
-    地址：
-    <input class="input" type="text" name="address" value="${student.address }">
-    <input type="submit" value="提交" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="button" class="btn btn-success" onclick="window.location.href='/WEB-INF/views/index.jsp'" value="返回">
+<form class="form-signin" action="<%=basePath%>student/update.do" method="post">
+    <input type="hidden" name="id" value="${student.id }"/>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">姓名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" value="${student.name }">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">性别</label>
+        <div class="col-sm-10">
+            <select name="gender" class="form-control">
+                <c:if test="${student.gender == 1}">
+                    <option value="1" selected="selected">男</option>
+                    <option value="2">女</option>
+                </c:if>
+                <c:if test="${student.gender == 2}">
+                    <option value="1">男</option>
+                    <option value="2" selected="selected">女</option>
+                </c:if>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">收入</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="balance" value="${student.balance }">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">地址</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="address" value="${student.address }">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-2">
+            <button type="submit" class="btn btn-success">提交</button>
+        </div>
+        <div class="col-sm-offset-2 col-sm-2">
+            <button type="button" class="btn btn-primary" onclick="window.location.href = '<%=basePath%>main'">返回
+            </button>
+        </div>
+    </div>
 </form>
+
+
 </body>
 </html>

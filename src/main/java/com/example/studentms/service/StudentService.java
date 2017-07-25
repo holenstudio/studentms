@@ -13,6 +13,8 @@ public interface StudentService {
 
     Student get(String id);
 
+    List<Student> search(String name);
+
     List<Student> findAll();
 
     void persist(Student student);

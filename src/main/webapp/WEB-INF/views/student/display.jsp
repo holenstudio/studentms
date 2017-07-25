@@ -15,30 +15,33 @@
 <head>
     <base href="<%=basePath%>">
     <title>显示用户信息</title>
-    <link href="<%=basePath%>css/bootstrap.css" rel="stylesheet">
-    <link href="<%=basePath%>/css/bootstrap-responsive.css" rel="stylesheet">
-    <script src="<%=basePath%>/js/jquery-1.9.1.min.js"></script>
-    <script src="<%=basePath%>/js/bootstrap.js"></script>
-    <script src="<%=basePath%>/js/studentms.js"></script>
+    <script src="<%=basePath%>js/jquery-1.9.1.min.js"></script>
+    <%--<link href="<%=basePath%>css/bootstrap.css" rel="stylesheet">--%>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=basePath%>css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="<%=basePath%>js/bootstrap.js"></script>
+    <script src="<%=basePath%>js/studentms.js"></script>
     <style type="text/css">
         input[type="text"] {
             height: auto;
             margin-bottom: 15px;
             padding: 3px 9px;
         }
+        .horizontal-center {
+            width: 900px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 
 <body>
-
-<form action="searchById" method="post">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    学生姓名：<input type="text" name="searchId" placeholder="学生姓名...">
-    <i class="icon-search"></i>&nbsp;<button type="submit" class="btn btn-inverse"> 查找</button>
+<form class="form-search horizontal-center" action="student/search.do" method="get">
+    学生姓名：
+    <input type="text" class="input-medium search-query" name="name">
+    <button type="submit" class="btn">查找</button>
 </form>
-<table class="table table-hover table-condensed">
+
+<table class="table table-hover table-condensed horizontal-center" style="width: 900px;margin: 0 auto;">
     <tr>
         <td align="center">
             <strong>姓名</strong>
@@ -56,31 +59,31 @@
     </tr>
     <c:forEach items="${students}" var="student">
         <tr>
-            <td>
+            <td align="center">
                     ${student.name}
             </td>
-            <td>
+            <td align="center">
                     ${student.gender}
             </td>
-            <td>
+            <td align="center">
                     ${student.address}
             </td>
-            <td>
+            <td align="center">
                     ${student.balance}
             </td>
-            <td>
+            <td align="center">
                 <div class="btn-group">
-                    <button type="button" onclick="update(${student.id})" class="btn btn-default">更新</button>
-                    <button type="button" onclick="delete(${student.id})" class="btn btn-default">删除</button>
+                    <button type="button" onclick="window.location.href = 'student/update?id=${student.id}'" class="btn btn-default">更新</button>
+                    <button type="button" onclick="window.location.href = 'student/delete?id=${student.id}'" class="btn btn-default">删除</button>
                 </div>
             </td>
         </tr>
     </c:forEach>
 </table>
 
-<hr>
-<a href="/home/index.jsp" class="btn btn-success">返回主菜单</a>
-<hr>
+<div class = "horizontal-center">
+<a href="<%=basePath%>main" class="btn btn-success">返回主菜单</a>
+</div>
 
 </body>
 </html>

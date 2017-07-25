@@ -35,6 +35,11 @@ public class UserController {
         return "/error";
     }
 
+    @RequestMapping("/main")
+    public String main(){
+        return "/main";
+    }
+
     @RequestMapping("/updatePsw")
     public String updatePsw(){
         return "/updatePsw";
