@@ -78,7 +78,6 @@ public class XmlDecode {
         }
     }
 
-
     private static void replaceTbl(Element bodyElement) {
         Stack<Element> matchStack = new Stack<Element>();
         Stack<Element> replaceStack = new Stack<Element>();
