@@ -21,7 +21,6 @@ public class XmlDecode {
     }
 
     private static void match() {
-        这里留下了我最美好的青春与回忆，那些过往的点点滴滴一直在脑海中打转，似乎他们就在昨天才刚刚发生，可是现在我却要离它而去，感谢这里的每一位小伙伴们，你们给予我的关心与支持，感谢领导给予我的信任与鼓励，不管我在哪里，都衷心祝福你们，祝福顶津公司，愿蓬勃发展，愿蒸蒸日上，愿节节升高，愿基业长青
 
         try {
             SAXReader saxReader = new SAXReader();
